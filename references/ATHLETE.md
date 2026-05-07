@@ -88,6 +88,14 @@ _Hardware y material disponible para el entrenamiento._
 - Ecosistema (Garmin, Coros, etc.)
 - Zapatillas y material relevante
 
+### Cross-Training
+
+_Disciplinas complementarias activas. Mantener vacío si no aplica. Detalles metodológicos en `references/strength.md`, `references/cycling.md`, `references/swimming.md`._
+
+- **Fuerza/Core:** Frecuencia, foco actual (hipertrofia, prevención, potencia), tests/PRs si aplica
+- **Ciclismo:** Frecuencia, tipo (rodillo, ruta, MTB), FTP si lo conoce
+- **Natación:** Frecuencia, nivel técnico, CSS/T1500 si lo conoce
+
 ## 3. Objetivos
 
 _Metas temporales jerarquizadas que guían la periodización del plan._

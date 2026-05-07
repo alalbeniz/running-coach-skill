@@ -9,7 +9,7 @@ La entrevista cubre los campos **core** del perfil. Los campos avanzados (baseli
 ## 1. Detección
 
 Buscar ATHLETE.md en orden:
-1. `~/.local/share/running-coach/ATHLETE.md`
+1. `~/.local/share/coach/ATHLETE.md`
 2. `~/.ATHLETE.md`
 
 Si no existe en ninguna ruta → iniciar onboarding.
@@ -69,15 +69,15 @@ Estos campos NO se preguntan en el onboarding. El coach los rellena conforme tra
 
 | Campo | Cuándo se completa | Fuente |
 |-------|-------------------|--------|
-| Métricas fisiológicas (VO2max, LTHR, FC max) | Pull inicial de Garmin o primeras semanas | Garmin MCP |
+| Métricas fisiológicas (VO2max, LTHR, FC max) | Pull inicial de Garmin o primeras semanas | skill `garmin` |
 | Modelo de zonas y zonas detalladas | Pull de Garmin o test | Dispositivo |
 | Distribución de intensidad | Tras analizar primeras semanas | Decisión del coach |
 | Herramientas de medición (RPE, potencia) | Conforme se usan | Observación |
-| Baselines de recuperación (HRV, RHR, sueño) | 2-4 semanas de datos | Garmin MCP |
+| Baselines de recuperación (HRV, RHR, sueño) | 2-4 semanas de datos | skill `garmin` |
 | Modelo de periodización | Al diseñar el primer plan | Decisión del coach |
 | Nutrición (train-low, fueling, GI) | Cuando se aborde nutrición | Conversación |
 | Reglas de exportación | Primera exportación | Conversación |
-| Estado de forma (métricas Garmin) | Cada actualización de Momentum | Garmin MCP |
+| Estado de forma (métricas Garmin) | Cada actualización de Momentum | skill `garmin` |
 | Observaciones críticas | Conforme se detectan patrones | Análisis continuo |
 
 ---
@@ -105,8 +105,8 @@ Si el atleta no especifica, asume estos valores por defecto:
 2. Rellenar con la información recopilada en la entrevista
 3. Dejar secciones no cubiertas con los placeholders del template (NO inventar)
 4. La sección **Momentum** se rellena con la fase inicial (normalmente "Base" o "Reacondicionamiento")
-5. Guardar en `~/.local/share/running-coach/ATHLETE.md`
-6. Si tiene Garmin conectado: hacer un pull inicial de métricas para completar §2 (fisiológicas, zonas, baselines)
+5. Guardar en `~/.local/share/coach/ATHLETE.md`
+6. Si tiene Garmin conectado: invocar la skill `garmin` para un pull inicial de métricas y completar §2 (fisiológicas, zonas, baselines)
 
 ---
 
