@@ -2,7 +2,7 @@
 
 Natación como apoyo para el corredor. Es la modalidad de cross-training **menos específica** para correr (postura horizontal, cadena cinética distinta, propulsión por brazos), pero tiene nichos muy concretos donde es la mejor herramienta.
 
-> **Principio rector**: la natación **no construye fitness de carrera** — construye fitness cardiovascular y específico de natación. Para un corredor, vale como **herramienta de recuperación/lesión** o **alternativa cuando no se puede correr**, no como vía de mejora del rendimiento en carrera.
+> **Principio rector**: la natación **no construye fitness de carrera**: construye fitness cardiovascular y específico de natación. Para un corredor, vale como **herramienta de recuperación/lesión** o **alternativa cuando no se puede correr**, no como vía de mejora del rendimiento en carrera.
 
 ---
 
@@ -37,51 +37,51 @@ Natación como apoyo para el corredor. Es la modalidad de cross-training **menos
 
 ## 4. Sesiones tipo
 
-### Recovery — 20-30min
+### Recovery: 20-30min
 
 Posterior a tirada larga o serie. Movilidad + circulación.
 
 ```
 200-300m crol suave calentamiento
-4 × 100m alternando (50 crol + 50 espalda) — RPE 3-4
+4 × 100m alternando (50 crol + 50 espalda): RPE 3-4
 200m kick board piernas suave
 200m crol nado suave
 200m enfriamiento mixto
 ```
 
-### Continuo aeróbico — 30-45min
+### Continuo aeróbico: 30-45min
 
 Sustituto de rodaje cuando hay lesión.
 
 ```
 300m calentamiento mixto
-3 × 400m crol Z2-Z3 — descanso 30s
+3 × 400m crol Z2-Z3: descanso 30s
 200m kick board
 200m vuelta a la calma
 ```
 
 Atleta no técnico: cambiar el bloque principal a series más cortas (8 × 100m con descanso 20s) para mantener la calidad técnica.
 
-### Intervalos cortos — 30-40min
+### Intervalos cortos: 30-40min
 
 Trabajo de umbral sin impacto. Útil en lesión.
 
 ```
 400m calentamiento progresivo
-6-8 × 100m fuerte (Z4) — descanso 20-30s entre rep
+6-8 × 100m fuerte (Z4): descanso 20-30s entre rep
 200m suave
-4 × 50m sprint (Z5) — descanso 30s
+4 × 50m sprint (Z5): descanso 30s
 200m vuelta a la calma
 ```
 
-### Sesión de piernas (kick) — 25-30min
+### Sesión de piernas (kick), 25-30min
 
-Útil cuando hay lesión de rodilla específica que tolera flotación pero no impacto, o como complemento.
+Solo como complemento o cuando un profesional haya confirmado que el movimiento es compatible con la lesión concreta.
 
 ```
 200m calentamiento crol
-8 × 50m kick board (sólo piernas) — descanso 30s
-4 × 100m crol normal — descanso 20s
+8 × 50m kick board (sólo piernas): descanso 30s
+4 × 100m crol normal: descanso 20s
 100m vuelta a la calma
 ```
 
@@ -126,7 +126,7 @@ Dom:  Descanso
 
 ### Aclimatación al calor (uso lateral)
 
-La natación en piscina caliente (>28°C) se ha estudiado como protocolo pasivo de aclimatación al calor — ver `methodology.md` §6. No es la herramienta principal pero puede sumar.
+La natación en piscina caliente (>28°C) se ha estudiado como complemento pasivo de aclimatación al calor; ver [trail-race.md](trail-race.md). No es la herramienta principal.
 
 ---
 
@@ -135,6 +135,6 @@ La natación en piscina caliente (>28°C) se ha estudiado como protocolo pasivo 
 1. **Técnica antes que volumen.** 30min de natación técnica > 60min de natación mala. Si el atleta nada con muchas resistencias, es mejor menos minutos.
 2. **No alargar la sesión por inercia.** El corredor que nada por recovery debe parar cuando toca, no llegar a fatiga.
 3. **Ojo con la rotación de hombros**: nadar mucho con técnica mediocre genera molestias en deltoides/manguito. Si hay dolor de hombro al nadar, parar.
-4. **Pull buoy + paddles** se evita en corredor amateur — añade estímulo de fuerza específico de nado que no tiene utilidad para correr y aumenta riesgo de hombro.
+4. **Pull buoy + paddles** se evita en corredor amateur: añade estímulo de fuerza específico de nado que no tiene utilidad para correr y aumenta riesgo de hombro.
 5. **Hidratación**: nadar deshidrata más de lo que parece (no hay sudor visible). Beber en sesiones >40min.
-6. **Nadar con piscina cerrada** vs aguas abiertas: la segunda añade variable de orientación, oleaje, traje de neopreno — irrelevante para un corredor que nada como cross-training, salvo que sea triatleta.
+6. **Nadar con piscina cerrada** vs aguas abiertas: la segunda añade variable de orientación, oleaje, traje de neopreno: irrelevante para un corredor que nada como cross-training, salvo que sea triatleta.

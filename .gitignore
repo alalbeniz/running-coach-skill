@@ -1,3 +1,7 @@
 # macOS
 .DS_Store
 ._*
+
+# Generated packages and Python caches
+dist/
+__pycache__/

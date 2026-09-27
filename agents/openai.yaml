@@ -1,0 +1,11 @@
+interface:
+  display_name: "Running Coach"
+  short_description: "Coaching de running y trail con Garmin"
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "garmin"
+      description: "Garmin mediante MissingMCP; conectar y autenticar en el cliente"
+      transport: "streamable_http"
+      url: "https://missingmcp.com/garmin/mcp"

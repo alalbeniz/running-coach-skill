@@ -1,86 +1,73 @@
-# Coach Skill
+# Running Coach
 
-Agent skill for personalized running and trail running coaching, with optional support for complementary work (strength/core, cycling, swimming) as adjuncts to the main running goal. Analyzes fitness status, creates periodized training plans, provides post-workout feedback, and advises on nutrition, technique, and recovery.
+Skill de running y trail para planificar, analizar sesiones y ajustar entrenamiento usando Garmin mediante [MissingMCP](https://missingmcp.com/garmin). Fuerza, ciclismo y natación se consultan cuando apoyan el objetivo de carrera.
 
-Designed to be used with AI coding agents (Claude Code, Cursor, etc.) as a [skill](https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/tutorials#create-custom-slash-commands). The agent reads `SKILL.md`, follows the instructions, and acts as a data-driven coach that adapts to each athlete's profile.
+Una sola fuente de instrucciones sirve para ChatGPT Chat, Work, Codex y otros clientes capaces de cargar skills y usar MCP. La instalación disponible depende del cliente. La fase 1 no sincroniza memoria entre aplicaciones.
 
-## What It Does
+## Qué cambia en la fase 1
 
-| Capability | Description |
-|------------|-------------|
-| **Athlete profiling** | Structured onboarding and persistent athlete profile (ATHLETE.md) |
-| **Training plans** | Periodized plans (linear, block, funnel, reverse, undulating) with export to Garmin, iCal, or Markdown |
-| **Post-workout feedback** | Analyzes Garmin data vs planned session, gives actionable feedback |
-| **Status analysis** | Evaluates training load, HRV, recovery, and fitness trends |
-| **Tips & consulting** | Nutrition, technique, injury prevention, race strategy — adapted to athlete context |
-| **Cross-training** | Strength/core, cycling, and swimming as complementary work — loaded on demand |
-| **Profile updates** | Tracks goal changes, injuries, and evolving fitness over time |
+- Acceso directo al conector: sin Coach Memory MCP, skill Garmin intermedia, librería `garminconnect` local ni servidor propio.
+- Primero se interpreta la petición. Una consulta conceptual no dispara lecturas de Garmin ni onboarding.
+- Resúmenes antes que datos detallados; fechas acotadas, paginación y reutilización de contexto vigente.
+- Perfil portable para objetivos y restricciones; Garmin conserva actividades, métricas y sesiones publicadas.
+- Plan, workout, entrada de calendario y actividad son conceptos distintos. Crear un borrador no lo publica.
+- La metodología se carga por temas, sin exigir shell, Python, archivos locales o subagentes al entrenador.
 
-## Requirements
+## Conectar Garmin
 
-- **[Coach Memory MCP](https://github.com/barcia/running-coach-memory-mcp)** — SQLite-based memory server for plans and semantic memory (RAG)
+1. Conecta `https://missingmcp.com/garmin/mcp` desde la configuración de conectores/MCP de tu cliente y autentícate con el proveedor. [Guía de MissingMCP para ChatGPT](https://missingmcp.com/garmin/chatgpt).
+2. Comprueba que el cliente expone las herramientas de lectura. Para publicar o reprogramar necesitas además las operaciones y permisos de escritura correspondientes.
+3. Si ya tienes el conector Garmin de MissingMCP, reutilízalo. El paquete declara la dependencia en `agents/openai.yaml`; no incorpora otra conexión, credenciales, un ID de app ajeno ni una copia del servidor.
 
-### Companion skills (optional)
+Sin conector, el coach puede explicar conceptos y trabajar con los datos que aportes. Sin escritura, entrega un plan y explica que no lo ha programado.
 
-- **`garmin`** — Read/write Garmin Connect data via the Python `garminconnect` library (activities, training status, HRV, scheduling workouts, etc.)
-- **`ical`** — Export training plans as `.ics` calendar files
+## Instalar la skill y el plugin
 
-## Setup
+### Codex y clientes con skills locales
 
-### 1. Install the Coach Memory MCP server
+Usa el directorio fuente que contiene `SKILL.md`, `references/` y `agents/`, o extrae `coach-skill.zip`. Instala la carpeta `coach` en la ubicación de skills que admite tu cliente. En Codex puede utilizarse `~/.agents/skills/coach/` o `.agents/skills/coach/` dentro de un proyecto. No hace falta ejecutar scripts para usarla.
 
-Add to your MCP client configuration (Claude Desktop, Cursor, etc.):
+Invócala como `$coach` en Codex. Si aparece en el selector de ChatGPT, puedes seleccionarla con `@`. Evita instalar simultáneamente la skill local y el plugin si eso produce dos entradas del mismo coach.
 
-```json
-{
-  "mcpServers": {
-    "Coach Memory": {
-      "command": "uvx",
-      "args": [
-        "--python", "3.12",
-        "--from", "git+https://github.com/barcia/running-coach-memory-mcp",
-        "running-coach-memory-mcp"
-      ]
-    }
-  }
-}
+### ChatGPT Chat y Work
+
+Para distribución entre superficies, utiliza el plugin generado `running-coach-plugin.zip`. Contiene `plugin.json`, la skill en `skills/coach/` y el manifiesto de compatibilidad `.codex-plugin/plugin.json`.
+
+En escritorio, un plugin local se puede registrar en una fuente personal mediante `@plugin-creator` en Work o `$plugin-creator` en Codex, indicando la carpeta extraída `running-coach`. Después se instala desde esa fuente y se prueba en un chat nuevo. Este repositorio no modifica automáticamente tu marketplace.
+
+El ZIP es un paquete de distribución, no una promesa de que cualquier ChatGPT admita importarlo directamente. La disponibilidad de fuentes locales varía por superficie; para distribución general en web/móvil se requiere el canal de plugins admitido por OpenAI. No se ha publicado este plugin en el directorio universal. Consulta [skills](https://learn.chatgpt.com/docs/build-skills) y [empaquetado de plugins](https://developers.openai.com/plugins/build/plugins).
+
+En una sesión sin instalación de skills, puedes adjuntar las instrucciones y las referencias relevantes como contexto, junto con el conector. Esa alternativa es manual: no activa descubrimiento automático ni equivale a una instalación del plugin.
+
+## Perfil y continuidad
+
+Empieza en un chat/proyecto de coaching y aporta el objetivo, disponibilidad y restricciones que no estén ya disponibles. El esquema está en [athlete-profile.md](references/athlete-profile.md). No hace falta completar todos sus campos ni crear un archivo local.
+
+La indicación reciente del usuario prevalece para sus preferencias y disponibilidad. Las mediciones conservan fuente y fecha. El coach reutiliza el contexto visible, pero no presupone acceso a otros chats ni persistencia automática. Puedes llevar un resumen compacto a otra conversación. Solo afirma haber guardado un perfil cuando una herramienta confirma la escritura en un destino disponible y autorizado.
+
+## Ejemplos
+
+- «¿Qué es un tempo?»
+- «Analiza mi última carrera y compárala con lo previsto».
+- «Prepara la semana que viene; solo puedo correr martes, jueves y domingo».
+- «Programa en Garmin las sesiones de este plan».
+- «Mueve el entrenamiento del jueves al viernes».
+
+El coach comprueba las escrituras y comunica resultados parciales. No interpreta una actividad del mismo día como prueba suficiente de haber completado una sesión prevista.
+
+## Desarrollo y paquetes
+
+La fuente editable es `SKILL.md` en la raíz junto con `references/` y `agents/`. No edites las copias generadas.
+
+```sh
+python3 scripts/build_packages.py
+python3 -m unittest discover -s tests -v
 ```
 
-### 2. Install the skill
+Python solo se usa para construir/verificar los paquetes, no durante el coaching. El constructor usa la biblioteca estándar, incluye la licencia y produce ZIP reproducibles en `dist/`. El manifiesto se mantiene en `packaging/plugin.json`; la copia compatible se genera a partir de él.
 
-Clone the repo and register `SKILL.md` as a skill in your agent:
+Las pruebas automáticas verifican el contenido y consistencia de los archivos instalables. Los escenarios de [validación](tests/scenarios.md) permiten evaluar decisiones del coach sin escribir en Garmin. Un paquete válido no prueba por sí solo la instalación en ChatGPT ni una escritura real en Garmin.
 
-```bash
-git clone git@github.com:barcia/running-coach-skill.git
-```
+## Licencia y origen
 
-The skill path to register is `SKILL.md`.
-
-## How It Works
-
-On every interaction, the agent:
-
-1. **Loads the athlete profile** from `~/.local/share/coach/ATHLETE.md` (or runs onboarding if missing)
-2. **Fetches current status** via Coach Memory MCP (recent plans + memories)
-3. **Pulls Garmin data** if available, by invoking the `garmin` skill (no specific endpoints documented here — that skill owns the surface)
-4. **Detects intent** and follows the appropriate workflow (plan, feedback, analysis, tips, cross-training, or profile update)
-5. **Persists insights** — updates ATHLETE.md, saves memories, and manages plan lifecycle
-
-The methodology reference covers periodization models, volume/intensity management, load monitoring (ACWR), recovery (HRV, sleep), trail-specific adjustments, nutrition periodization, taper protocols, and post-race recovery. Cross-training references (strength, cycling, swimming) are loaded only when the athlete asks about those disciplines.
-
-## Project Structure
-
-```
-├── SKILL.md                        # Agent skill definition (entry point)
-└── references/
-    ├── ATHLETE.md                  # Athlete profile template
-    ├── methodology.md              # Running/trail methodology reference
-    ├── onboarding.md               # New athlete onboarding process
-    ├── strength.md                 # Strength & core for runners (cross-training)
-    ├── cycling.md                  # Cycling as cross-training
-    └── swimming.md                 # Swimming as cross-training
-```
-
-## License
-
-[GPL-3.0](LICENSE)
+Fork de [barcia/running-coach-skill](https://github.com/barcia/running-coach-skill), por Ivan Barcia. Se conserva [LICENSE](LICENSE), GPL-3.0. Se corrige el antiguo campo MIT del manifiesto de la skill para alinearlo con la licencia del repositorio.

@@ -54,7 +54,7 @@ Reglas prácticas:
 
 ## 5. Sesiones tipo
 
-### Recovery spin — 30-45min
+### Recovery spin: 30-45min
 
 Después de tirada larga o calidad. FC muy baja, cadencia alta (~90 rpm), sin esfuerzo perceptible.
 
@@ -64,7 +64,7 @@ RPE: 2-3/10
 Objetivo: activar circulación, no estimular nada
 ```
 
-### Z2 largo — 60-120min
+### Z2 largo: 60-120min
 
 Sustituto de rodaje fácil. Útil en bloques de volumen o en lesión.
 
@@ -75,7 +75,7 @@ Sustituto de rodaje fácil. Útil en bloques de volumen o en lesión.
 RPE: 4-5/10, conversación posible pero algo cortada
 ```
 
-### Tempo / sweet spot — 45-60min
+### Tempo / sweet spot: 45-60min
 
 Estímulo de umbral sin impacto. Útil 1x/semana en fase específica si el atleta tolera bien la carga.
 
@@ -86,7 +86,7 @@ Estímulo de umbral sin impacto. Útil 1x/semana en fase específica si el atlet
 10min vuelta a la calma
 ```
 
-### Intervalos VO2max — 35-45min
+### Intervalos VO2max: 35-45min
 
 Sustituto de series cuando hay lesión menor que prohíbe correr fuerte. Reproduce demanda aeróbica máxima.
 
@@ -97,7 +97,7 @@ Sustituto de series cuando hay lesión menor que prohíbe correr fuerte. Reprodu
 10min vuelta a la calma
 ```
 
-### Long ride aeróbico — 2-4h (atleta avanzado, fin de semana)
+### Long ride aeróbico: 2-4h (atleta avanzado, fin de semana)
 
 Volumen aeróbico grande sin coste articular. Útil en fases base, especialmente si el atleta es trail/ultra y tolera tiempos largos.
 
@@ -118,9 +118,9 @@ Lun:  Descanso
 Mar:  Series carrera
 Mié:  Rodaje Z2 corto carrera   (o sustituir por 60min bici Z2 si fatigado)
 Jue:  Tempo carrera
-Vie:  Recovery — 30min bici Z1
+Vie:  Recovery: 30min bici Z1
 Sáb:  Tirada larga
-Dom:  Recovery — 45min bici Z1 + core
+Dom:  Recovery: 45min bici Z1 + core
 ```
 
 ### Bloque de volumen (ej: pre-ultra, atleta intermedio-avanzado)
@@ -156,6 +156,6 @@ Dom:  Bici recovery + fuerza
 1. **No correr y bici fuerte el mismo día.** Si toca, separar 6h y la bici suave.
 2. **Cadencia importa**: <70 rpm carga la pierna como fuerza pesada (sólo en bloques específicos). 80-95 rpm es lo neuromuscularmente análogo a carrera.
 3. **El sillín altera la pierna**: si el atleta empieza a hacer mucha bici, vigilar sensaciones en isquios/glúteos al volver a correr fuerte. Pueden notarse "rígidos" 1-2 sesiones.
-4. **Hidratación y combustible** son menos obvios en bici (no hay impacto que recuerde) — beber y comer igual que en carrera larga.
+4. **Hidratación y combustible** son menos obvios en bici (no hay impacto que recuerde): beber y comer igual que en carrera larga.
 5. **Postura/bike fit** importa si el atleta empieza a meter horas. Mal fit = lumbares/cervicales/rodilla. Si supera 3-4h/semana, vale la pena revisar.
 6. **MTB añade trabajo neuromuscular** (técnica, fuerza-explosiva en subidas cortas, bajadas). Para corredor de trail puede tener transferencia parcial.

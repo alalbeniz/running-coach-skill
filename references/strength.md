@@ -1,6 +1,6 @@
 # Fuerza y Core para Corredores
 
-Trabajo de fuerza generalista (gimnasio, casa) como apoyo al running de cualquier disciplina. Para fuerza específica de trail (excéntrico de bajadas, pliometría reactiva), ver `methodology.md` §6.
+Trabajo de fuerza generalista (gimnasio, casa) como apoyo al running de cualquier disciplina. Para fuerza específica de trail (excéntrico de bajadas, pliometría reactiva), ver [trail-race.md](trail-race.md).
 
 > **Principio rector**: la fuerza para correr no busca hipertrofia ni 1RMs altos como objetivo en sí. Busca **mejorar la economía de carrera**, **prevenir lesiones** y **mantener la calidad neuromuscular** especialmente en bloques de alto volumen.
 
@@ -23,7 +23,7 @@ El error clásico del corredor recreativo es prescribir **muchas reps con poco p
 
 | Fase del plan running | Frecuencia | Foco | Volumen relativo |
 |----------------------|------------|------|------------------|
-| **Base** | 2-3x/semana | Acumular fuerza máxima + hipertrofia funcional. Construir base. | Alto (3-4 sesiones de 45-60min) |
+| **Base** | 2-3x/semana | Acumular fuerza máxima + hipertrofia funcional. Construir base. | Alto (2-3 sesiones de 45-60min) |
 | **Específico** | 1-2x/semana | Mantener. Reducir volumen, mantener intensidad. Más trabajo de potencia. | Medio (2 sesiones de 30-45min) |
 | **Taper** | 1x/semana | Mantenimiento neural. Sin DOMS. | Bajo (1 sesión corta de 20-30min, sin fallo) |
 | **Recuperación post-carrera** | 0-1x/semana | Movilidad y core suave. Cero pesado. | Mínimo |
@@ -68,7 +68,7 @@ Críticos para corredores, especialmente trail. No requieren carga grande pero s
 
 ### Core funcional
 
-El core no es "abdominales" — es estabilidad anti-rotación, anti-extensión, anti-flexión lateral. Hacer al final de la sesión o como bloque dedicado.
+El core no es "abdominales": es estabilidad anti-rotación, anti-extensión, anti-flexión lateral. Hacer al final de la sesión o como bloque dedicado.
 
 | Ejercicio | Patrón | Series típicas |
 |-----------|--------|----------------|
@@ -82,7 +82,7 @@ El core no es "abdominales" — es estabilidad anti-rotación, anti-extensión, 
 
 ## 4. Bloques tipo
 
-### Sesión de 45-60min — fuerza base (corredor 2x/semana)
+### Sesión de 45-60min: fuerza base (corredor 2x/semana)
 
 ```
 Calentamiento dinámico (5-8 min)
@@ -95,7 +95,7 @@ C2) Plancha lateral            3×40s/lado      60s
 D)  Calf raises bilateral      3×15            60s
 ```
 
-### Sesión corta de 25-30min — mantenimiento en fase específica
+### Sesión corta de 25-30min: mantenimiento en fase específica
 
 ```
 A1) Sentadilla goblet          3×6             2 min
@@ -128,8 +128,8 @@ El "concurrent training" tiene un efecto de interferencia documentado: si fuerza
 - **No programar fuerza pesada el mismo día que una sesión de calidad de carrera**, salvo separación de >6h. Mejor en días alternos.
 - Si tiene que ser el mismo día: **primero la calidad de carrera**, luego fuerza al menos 6h después. Nunca al revés (fuerza primero deja la pierna sin chispa para series).
 - **No hacer fuerza pesada en piernas el día anterior a una tirada larga** o sesión clave. Sí torso o core.
-- **Evitar inmersión en agua fría inmediatamente post-fuerza** (atenúa hipertrofia, ver `methodology.md` §5). Sí está bien post-carrera.
-- En semanas de descarga de carrera, mantener fuerza igual o incluso ligeramente más alta — se aprovecha el descanso de impacto.
+- **Evitar inmersión en agua fría inmediatamente post-fuerza** si importa la adaptación de fuerza (ver [recovery-nutrition.md](recovery-nutrition.md)).
+- En semanas de descarga de carrera, mantener fuerza igual o incluso ligeramente más alta: se aprovecha el descanso de impacto.
 
 ### Estructura semanal modelo (atleta intermedio, 5 días/semana de carrera)
 
@@ -150,7 +150,7 @@ Dom:  Rodaje recovery                    + Fuerza pesada cuerpo entero (tarde)
 1. **Primero correr bien, luego añadir fuerza.** Si el atleta está saturado de carga aeróbica o lesionado por exceso, no es momento de subir la fuerza. La fuerza apoya, no rescata.
 2. **Constancia > intensidad puntual.** 2 sesiones/semana durante 6 meses bate a 4 sesiones/semana durante 6 semanas.
 3. **Movimientos compuestos primero.** Sentadilla, peso muerto, hip thrust, zancadas. Aislamientos al final si queda tiempo.
-4. **Cargar de verdad.** 3-6 reps al 80-90% de 1RM moviendo la barra rápido (intención de velocidad). Esto es lo que mejora la economía. Las series de 15+ reps con poco peso son resistencia muscular local — útil pero secundario.
+4. **Cargar de verdad.** 3-6 reps al 80-90% de 1RM moviendo la barra rápido (intención de velocidad). Esto es lo que mejora la economía. Las series de 15+ reps con poco peso son resistencia muscular local: útil pero secundario.
 5. **Excéntricos para tendinopatías y prevención.** Curl nórdico (isquios), bajadas de gemelo (Aquiles), sentadilla excéntrica lenta (rotuliana).
 6. **Reset progresivo.** Si vuelve tras parón: 2-3 semanas a baja carga (50-60% 1RM, 8-12 reps) antes de empujar al rango de fuerza máxima.
 7. **Test cada 8-12 semanas**, no sesión a sesión. Sentadilla 3RM, peso muerto 5RM, single-leg hop test. Sin obsesionarse con PRs.
@@ -162,4 +162,4 @@ Dom:  Rodaje recovery                    + Fuerza pesada cuerpo entero (tarde)
 - **Atleta novato en gimnasio**: empezar 1-2x/semana con énfasis en patrón motor. Sentadilla goblet, peso muerto rumano con mancuernas, plancha. 4-6 semanas hasta cargar barra olímpica.
 - **Vuelta de lesión**: empezar siempre por el lado sano y por estabilidad/propiocepción antes que carga. Validar simetría con single-leg hop test antes de volver a series.
 - **Bloque de altísimo volumen de carrera (ej: pre-ultra)**: reducir fuerza a 1x/semana de 30min, foco core + tobillo + glúteo medio. Mantener el patrón sin acumular DOMS.
-- **Sin material en casa**: peso corporal puede sostener fase base de un principiante. Sentadilla búlgara con mochila pesada, hip thrust al borde del sofá, calf raises a una pierna, planchas. Limita el techo de fuerza máxima — para un corredor recreativo es suficiente; para un competidor, en algún momento necesita gimnasio.
+- **Sin material en casa**: peso corporal puede sostener fase base de un principiante. Sentadilla búlgara con mochila pesada, hip thrust al borde del sofá, calf raises a una pierna, planchas. Limita el techo de fuerza máxima: para un corredor recreativo es suficiente; para un competidor, en algún momento necesita gimnasio.
