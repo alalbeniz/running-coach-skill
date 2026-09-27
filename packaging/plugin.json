@@ -1,9 +1,11 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "running-coach",
-  "version": "3.0.0",
-  "description": "Coaching portable de running y trail con MissingMCP y contexto bajo demanda.",
-  "author": {"name": "alalbeniz"},
+  "version": "3.1.0",
+  "description": "Coaching portable de running y trail con el conector Garmin elegido por el usuario.",
+  "author": {
+    "name": "alalbeniz"
+  },
   "repository": "https://github.com/alalbeniz/running-coach-skill",
   "license": "GPL-3.0-only",
   "extensions": {
@@ -11,11 +13,17 @@
       "interface": {
         "displayName": "Running Coach",
         "shortDescription": "Planes y análisis de running con Garmin",
-        "longDescription": "Entrenador de running y trail con consultas bajo demanda a MissingMCP. Usa la conexión Garmin existente del cliente; no incorpora un servidor ni sincroniza memoria entre aplicaciones.",
+        "longDescription": "Entrenador de running y trail con consultas bajo demanda al conector Garmin configurado por el usuario, cualquiera que sea su alias. Incluye una versión Markdown autocontenida para el chat. No crea conexiones ni sincroniza memoria entre aplicaciones.",
         "developerName": "alalbeniz",
         "category": "Productivity",
-        "capabilities": ["Read", "Write"],
-        "defaultPrompt": ["Analiza mi última carrera.", "Prepara mi próxima semana de entrenamiento."]
+        "capabilities": [
+          "Read",
+          "Write"
+        ],
+        "defaultPrompt": [
+          "Analiza mi última carrera.",
+          "Prepara mi próxima semana de entrenamiento."
+        ]
       }
     }
   }

@@ -2,7 +2,7 @@
 
 Skill de running y trail para planificar, analizar sesiones y ajustar entrenamiento usando Garmin mediante [MissingMCP](https://missingmcp.com/garmin). Fuerza, ciclismo y natación se consultan cuando apoyan el objetivo de carrera.
 
-Una sola fuente de instrucciones sirve para ChatGPT Chat, Work, Codex y otros clientes capaces de cargar skills y usar MCP. La instalación disponible depende del cliente. La fase 1 no sincroniza memoria entre aplicaciones.
+Una sola fuente de instrucciones sirve para ChatGPT Chat, Work, Codex y otros clientes capaces de cargar skills y usar MCP. La instalación disponible depende del cliente. La fase 1 no sincroniza memoria entre aplicaciones. El conector puede llamarse `@Garmin` o tener cualquier alias elegido por ti.
 
 ## Qué cambia en la fase 1
 
@@ -17,7 +17,7 @@ Una sola fuente de instrucciones sirve para ChatGPT Chat, Work, Codex y otros cl
 
 1. Conecta `https://missingmcp.com/garmin/mcp` desde la configuración de conectores/MCP de tu cliente y autentícate con el proveedor. [Guía de MissingMCP para ChatGPT](https://missingmcp.com/garmin/chatgpt).
 2. Comprueba que el cliente expone las herramientas de lectura. Para publicar o reprogramar necesitas además las operaciones y permisos de escritura correspondientes.
-3. Si ya tienes el conector Garmin de MissingMCP, reutilízalo. El paquete declara la dependencia en `agents/openai.yaml`; no incorpora otra conexión, credenciales, un ID de app ajeno ni una copia del servidor.
+3. Si ya tienes el conector Garmin de MissingMCP, reutilízalo. Selecciona tu complemento (por ejemplo `@Garmin`) en el chat. La skill identifica sus capacidades y utiliza sus herramientas reales; no fija su nombre técnico, URL, ID o prefijo ni crea otra conexión. `agents/openai.yaml` contiene solo metadatos de presentación.
 
 Sin conector, el coach puede explicar conceptos y trabajar con los datos que aportes. Sin escritura, entrega un plan y explica que no lo ha programado.
 
@@ -29,6 +29,16 @@ Usa el directorio fuente que contiene `SKILL.md`, `references/` y `agents/`, o e
 
 Invócala como `$coach` en Codex. Si aparece en el selector de ChatGPT, puedes seleccionarla con `@`. Evita instalar simultáneamente la skill local y el plugin si eso produce dos entradas del mismo coach.
 
+### Un Markdown para toda la conversación
+
+Descarga [running-coach-chat.md](docs/running-coach-chat.md) y adjúntalo al comenzar un chat. Selecciona tu complemento, por ejemplo `@Garmin`, y escribe:
+
+> Usa el documento adjunto como guía de coaching durante esta conversación. Mi conector es @Garmin.
+
+Después puedes pedir planes, análisis o ajustes sin reenviar las instrucciones en cada mensaje mientras sigan disponibles en el contexto. El archivo contiene la skill y todas las referencias de coaching, con enlaces internos; no necesita otros archivos del repositorio. No instala una skill ni un conector y no garantiza memoria entre conversaciones o retención ilimitada del contexto.
+
+La versión autocontenida carga más texto inicial que la modular. Para ahorrar contexto cuando el cliente admite instalación de skills, usa la versión modular. El Markdown se genera desde la misma fuente, no se mantiene a mano.
+
 ### ChatGPT Chat y Work
 
 Para distribución entre superficies, utiliza el plugin generado `running-coach-plugin.zip`. Contiene `plugin.json`, la skill en `skills/coach/` y el manifiesto de compatibilidad `.codex-plugin/plugin.json`.
@@ -37,7 +47,7 @@ En escritorio, un plugin local se puede registrar en una fuente personal mediant
 
 El ZIP es un paquete de distribución, no una promesa de que cualquier ChatGPT admita importarlo directamente. La disponibilidad de fuentes locales varía por superficie; para distribución general en web/móvil se requiere el canal de plugins admitido por OpenAI. No se ha publicado este plugin en el directorio universal. Consulta [skills](https://learn.chatgpt.com/docs/build-skills) y [empaquetado de plugins](https://developers.openai.com/plugins/build/plugins).
 
-En una sesión sin instalación de skills, puedes adjuntar las instrucciones y las referencias relevantes como contexto, junto con el conector. Esa alternativa es manual: no activa descubrimiento automático ni equivale a una instalación del plugin.
+En una sesión sin instalación de skills, usa el Markdown autocontenido descrito arriba. No activa descubrimiento automático ni equivale a una instalación del plugin.
 
 ## Perfil y continuidad
 
@@ -61,10 +71,12 @@ La fuente editable es `SKILL.md` en la raíz junto con `references/` y `agents/`
 
 ```sh
 python3 scripts/build_packages.py
+# Tras editar la fuente, actualiza también el documento versionado:
+cp dist/running-coach-chat.md docs/running-coach-chat.md
 python3 -m unittest discover -s tests -v
 ```
 
-Python solo se usa para construir/verificar los paquetes, no durante el coaching. El constructor usa la biblioteca estándar, incluye la licencia y produce ZIP reproducibles en `dist/`. El manifiesto se mantiene en `packaging/plugin.json`; la copia compatible se genera a partir de él.
+Python solo se usa para construir/verificar los paquetes, no durante el coaching. El constructor usa la biblioteca estándar, incluye la licencia y produce ZIP reproducibles y `running-coach-chat.md` en `dist/`. El manifiesto se mantiene en `packaging/plugin.json`; la copia compatible se genera a partir de él.
 
 Las pruebas automáticas verifican el contenido y consistencia de los archivos instalables. Los escenarios de [validación](tests/scenarios.md) permiten evaluar decisiones del coach sin escribir en Garmin. Un paquete válido no prueba por sí solo la instalación en ChatGPT ni una escritura real en Garmin.
 

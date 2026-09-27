@@ -14,6 +14,17 @@ SPEC.loader.exec_module(BUILDER)
 
 
 class PackagesTest(unittest.TestCase):
+    def test_chat_document_is_self_contained_and_current(self):
+        content = BUILDER.chat_document()
+        anchors = re.findall(r'<a id="([^"]+)"></a>', content)
+        self.assertEqual(len(anchors), len(set(anchors)))
+        self.assertEqual(len(anchors), 1 + len(list((ROOT / "references").glob("*.md"))))
+        for link in re.findall(r"\]\(([^)]+)\)", content):
+            if "://" not in link:
+                self.assertTrue(link.startswith("#"), link)
+                self.assertIn(link[1:], anchors)
+        self.assertEqual(content, (ROOT / "docs/running-coach-chat.md").read_text())
+
     def test_installable_content_and_reproducibility(self):
         with tempfile.TemporaryDirectory() as directory:
             output = Path(directory)

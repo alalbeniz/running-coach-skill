@@ -1,10 +1,12 @@
-# Garmin mediante MissingMCP
+# Conector Garmin configurado por el usuario
 
-Usa las herramientas Garmin disponibles directamente en el host. Los nombres estables de esta guía son los sufijos sin prefijo; el host puede exponerlos con un namespace distinto. Descubre la herramienta y su esquema real en el entorno actual. No inventes parámetros, enums ni estructuras JSON a partir de esta referencia.
+Reutiliza el complemento que el usuario haya seleccionado, por ejemplo `@Garmin`. MissingMCP es el proveedor de la conexión; el usuario puede darle cualquier nombre visible. Ni ese alias ni un prefijo técnico identifican una API obligatoria.
+
+Los nombres de la tabla son ejemplos de operaciones observadas, no requisitos de nombre. Busca la capacidad equivalente dentro del conector seleccionado y consulta su descripción y esquema reales. No enumeres todas las herramientas en cada turno ni cambies de cuenta o proveedor por coincidencia de nombres. Si la operación no está disponible, explica el límite y trabaja con los datos aportados. No inventes parámetros, enums ni estructuras JSON.
 
 ## Selección por necesidad
 
-| Necesidad | Herramienta estable | Uso eficiente |
+| Necesidad | Operación de referencia | Uso eficiente |
 |---|---|---|
 | Actividades de un intervalo | `get_activities_by_date` | Rango acotado, filtro de deporte y página pequeña. Continúa solo mientras `has_more` y la pregunta lo exija. |
 | Detalle de una actividad | `get_activity` | Después de identificar el `activity_id`. |
