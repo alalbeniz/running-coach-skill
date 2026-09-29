@@ -522,6 +522,85 @@ Si el alta destino funciona y la retirada antigua falla, reconcilia una vez bajo
 
 Obtén el esquema de la descripción de la herramienta o de los recursos que exponga el host. Conserva la intención del plan: calentamiento, bloques, recuperaciones, repeticiones, enfriamiento y objetivo de intensidad. Tras subir, abre el workout y comprueba nombre, deporte, pasos, repeticiones, duraciones o distancias y targets; después prográmalo y verifica el calendario.
 
+
+### Reglas de construcción de workouts de carrera en Garmin
+
+Cuando el workout se vaya a ejecutar desde un reloj Garmin, la estructura debe ser legible durante la sesión y no solo correcta en términos fisiológicos.
+
+#### Series y repeticiones
+
+- Si una sesión contiene un patrón repetido de **trabajo + recuperación**, constrúyelo como un grupo de repetición real de Garmin (`RepeatGroupDTO`) y no como una secuencia plana de pasos individuales.
+- El grupo debe mostrar correctamente el número de iteraciones (`1/N`, `2/N`, etc.) para que el atleta sepa cuántas repeticiones lleva y cuántas quedan.
+- Incluye siempre `numberOfIterations` y `endCondition` con `conditionTypeId: 7` y `conditionTypeKey: "iterations"` cuando el host use el DTO de Garmin.
+- Dentro de cada repetición distingue explícitamente **trabajo / interval** y **recuperación / recovery**.
+- Tras subir el workout, vuelve a abrirlo y verifica que Garmin haya conservado el número de repeticiones, los pasos internos, las duraciones o distancias y los targets.
+
+Ejemplo conceptual:
+
+```text
+Calentamiento
+3 × [
+    8' trabajo
+    2' recuperación
+]
+Enfriamiento
+```
+
+Debe implementarse como **un bloque de repetición de 3 iteraciones**, no como seis pasos independientes.
+
+#### Calentamiento
+
+- El calentamiento debe permitir una subida **progresiva y natural** de la frecuencia cardíaca.
+- No obligues al atleta a alcanzar una FC mínima desde el inicio: una FC de 110-120 ppm durante los primeros minutos puede ser completamente normal.
+- Cuando se quiera controlar el calentamiento por FC, usa preferentemente un **techo de FC** y no una banda estrecha.
+- Si Garmin exige mínimo y máximo para un target de FC, simula el techo con un límite inferior deliberadamente bajo, por ejemplo `60–145 ppm`, que en la práctica funciona como `FC <= 145 ppm`.
+- El calentamiento no debe penalizar el cumplimiento por estar fisiológicamente por debajo de una FC mínima artificial.
+- En sesiones de calidad, el calentamiento puede incluir después progresivos o activaciones si la sesión lo requiere, pero deben aparecer como pasos separados.
+
+#### Enfriamiento
+
+- Aplica el mismo criterio que en el calentamiento: evita exigir una FC mínima.
+- Puede usarse un techo práctico de FC o dejar el paso sin target cuando sea más apropiado.
+- El objetivo es facilitar la bajada progresiva del esfuerzo, no maximizar un porcentaje de cumplimiento del workout.
+
+#### Rodajes fáciles y aeróbicos
+
+- Usa FC como guía principal, junto con RPE y terreno.
+- Evita rangos excesivamente estrechos que hagan pitar continuamente al reloj por pequeñas oscilaciones normales.
+- En terreno ondulado, usa una ventana suficientemente amplia para permitir subidas y bajadas sin convertir el entrenamiento en una persecución del número de FC.
+- El target debe actuar como **guía y límite de intensidad**, no como obligación de permanecer segundo a segundo dentro de una ventana estrecha.
+- El porcentaje de cumplimiento de Garmin es secundario frente al objetivo fisiológico real de la sesión.
+
+#### Tempo, ritmo de carrera e intervalos largos
+
+- Cuando el terreno sea llano o el atleta vaya a pista, prescribe preferentemente los bloques de tempo, ritmo de carrera e intervalos largos **por ritmo**, no por FC.
+- Usa la FC posteriormente como dato de análisis de la respuesta fisiológica.
+- En pista, considera estructurar las repeticiones por distancia cuando resulte más natural para la sesión, por ejemplo 400 m, 800 m, 1000 m o 1600 m.
+- En carretera o pista, un target de ritmo debe tener una banda razonable y no innecesariamente estrecha.
+
+#### Strides y sprints cortos
+
+- La FC no debe dirigir esfuerzos cortos porque responde con retraso.
+- Un target de ritmo instantáneo puede ser poco fiable en esfuerzos de ~10-30 s si el GPS tarda en estabilizarse.
+- Si se hacen en pista o en un tramo claramente llano, puede usarse ritmo o distancia.
+- En terreno ondulado, prioriza duración o distancia, intención técnica, RPE y una ejecución rápida pero relajada.
+- Aunque no exista target de ritmo, los strides/sprints deben seguir apareciendo como **repeticiones reales** para que el reloj muestre claramente cuándo toca acelerar, cuándo recuperar y cuántas iteraciones quedan.
+
+#### Selección de métrica según el tipo de sesión
+
+| Tipo de bloque | Target preferente |
+|---|---|
+| Calentamiento | FC con techo práctico o sin target |
+| Rodaje fácil / base | FC en rango amplio + RPE |
+| Tempo continuo | Ritmo en llano/pista; FC/RPE como control |
+| Ritmo media maratón | Ritmo en llano/pista |
+| Series largas | Ritmo o distancia + ritmo |
+| Recuperaciones | Sin target o muy suave |
+| Strides / sprints cortos | Repetición estructurada; distancia/tiempo + intención, ritmo solo si es fiable |
+| Enfriamiento | FC con techo práctico o sin target |
+
+La estructura que ve el atleta en el reloj forma parte de la calidad del workout. Un entrenamiento bien prescrito pero confuso de ejecutar debe considerarse mal construido y corregirse.
+
 ---
 
 <a id="coach-onboarding"></a>
