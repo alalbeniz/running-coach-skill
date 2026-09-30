@@ -526,7 +526,7 @@ Obtén el esquema de la descripción de la herramienta o de los recursos que exp
 ### Reglas de construcción de workouts de fuerza en Garmin
 
 - Selecciona el ejercicio real mediante los campos estructurados `category` y `exerciseName` con claves válidas de Garmin. El texto en notas puede aclarar la variante, pero no sustituye esos campos.
-- En pasos con mancuernas, configura también `weightValue` y `weightUnit` en el paso. Para la rutina actual del atleta, usa **4 kg por mancuerna** en ejercicios con dos mancuernas; cuando se sostiene una sola, indica 4 kg para esa mancuerna. Verifica el peso que Garmin conserva tras la subida.
+- Antes de configurar o publicar una rutina con carga, pregunta al atleta qué peso usará en cada ejercicio, salvo que ya lo haya indicado explícitamente para esa sesión. Aclara si el peso es por mancuerna o total y si se usa una o dos mancuernas; no conviertas la carga de una sesión anterior en un valor fijo o predeterminado. Configura el peso confirmado en `weightValue` y `weightUnit` y verifica lo que Garmin conserva tras la subida.
 - Entre **cada par de ejercicios** de un circuito de fuerza, añade un paso de descanso/transición de **10 segundos** para preparar el siguiente movimiento. Debe existir también al pasar del último ejercicio al primero de la siguiente vuelta; evita duplicarlo si ya hay un descanso entre vueltas más largo, que prevalece. Conserva los descansos de ronda o bloque como pasos separados.
 - Usa grupos de repetición reales para las vueltas y verifica después de subir los tipos de ejercicio, las cargas, las transiciones de 10 segundos y el número de vueltas.
 
