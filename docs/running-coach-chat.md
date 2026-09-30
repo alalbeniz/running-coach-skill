@@ -523,6 +523,13 @@ Si el alta destino funciona y la retirada antigua falla, reconcilia una vez bajo
 Obtén el esquema de la descripción de la herramienta o de los recursos que exponga el host. Conserva la intención del plan: calentamiento, bloques, recuperaciones, repeticiones, enfriamiento y objetivo de intensidad. Tras subir, abre el workout y comprueba nombre, deporte, pasos, repeticiones, duraciones o distancias y targets; después prográmalo y verifica el calendario.
 
 
+### Reglas de construcción de workouts de fuerza en Garmin
+
+- Selecciona el ejercicio real mediante los campos estructurados `category` y `exerciseName` con claves válidas de Garmin. El texto en notas puede aclarar la variante, pero no sustituye esos campos.
+- En pasos con mancuernas, configura también `weightValue` y `weightUnit` en el paso. Para la rutina actual del atleta, usa **4 kg por mancuerna** en ejercicios con dos mancuernas; cuando se sostiene una sola, indica 4 kg para esa mancuerna. Verifica el peso que Garmin conserva tras la subida.
+- Entre **cada par de ejercicios** de un circuito de fuerza, añade un paso de descanso/transición de **10 segundos** para preparar el siguiente movimiento. Debe existir también al pasar del último ejercicio al primero de la siguiente vuelta; evita duplicarlo si ya hay un descanso entre vueltas más largo, que prevalece. Conserva los descansos de ronda o bloque como pasos separados.
+- Usa grupos de repetición reales para las vueltas y verifica después de subir los tipos de ejercicio, las cargas, las transiciones de 10 segundos y el número de vueltas.
+
 ### Reglas de construcción de workouts de carrera en Garmin
 
 Cuando el workout se vaya a ejecutar desde un reloj Garmin, la estructura debe ser legible durante la sesión y no solo correcta en términos fisiológicos.
